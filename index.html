@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Jeopardy Clues</title>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
 
   </head>
@@ -15,13 +15,35 @@
 
     <main class="content">
       <div class="search-container">
-          <label for="search-bar" class="search-bar-label">Search for a Clue</label>
+          <!-- <label for="search-bar" class="search-bar-label">Search for a Clue</label> -->
+          <div class="search-bar-container">
+            <label for="value-bar", class = "search-bar-label">Value</label>
           <div class="search-bar-element">
-            <input type="text" name="search-bar" id = "search-bar" class="search-bar" value="Enter Clue">
+            <input type="text" name="value-bar" id = "value-bar" class="search-bar">
           </div>
         </div>
-      <button id="getQuestion">Get Question</button>
-      <div id="output"></div>
+        <div class="search-bar-container">
+          <label for="category-bar", class = "search-bar-label">Category</label>
+        <div class="search-bar-element">
+          <input type="text" name="category-bar" id = "category-bar" class="search-bar">
+        </div>
+        </div>
+        <div class="search-bar-container">
+          <label for="date-bar", class = "search-bar-label">Date</label>
+        <div class="search-bar-element">
+          <input type="text" name="date-bar" id = "start-date-bar" class="search-bar" placeholder="Start Date">
+        </div>
+        <div class="search-bar-element">
+          <input type="text" name="date-bar" id = "end-date-bar" class="search-bar" placeholder="End Date">
+        </div>
+      </div>
+          <button id="getQuestion">Filter Questions</button>
+        </div>
+
+        <div id="output-container">
+
+      </div>
+
     </main>
 
     </body>
