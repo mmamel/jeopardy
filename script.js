@@ -2,12 +2,16 @@
 window.onload=function(){
     var list = document.getElementById("getQuestion");
   //  initial_load("http://jservice.io/api/clues");
-    var json_data = getQuestion("http://jservice.io/api/clues");
+    var json_data = getQuestion("https://cors-anywhere.herokuapp.com/http://jservice.io/api/clues");
     list.addEventListener("click", function(){getFilter(json_data)});
 }
 
 function getFilter(json_data){
-
+  var ten = "10"
+  var five = "5"
+  if(ten>five){
+    console.log(hello)
+  }
   var value = document.getElementById("value-bar").value;
   console.log(value);
   var category = document.getElementById("category-bar").value;
@@ -17,9 +21,6 @@ function getFilter(json_data){
   var update='';
   const container = document.getElementsByClassName("output");
   for(var i =0; i<container.length;i++){
-    // if(value!= '' && container[i].$("value").text() != value){
-    //   container[i].className = "output";
-    // }
     var curr = container[i].children
     console.log(container[i])
     console.log(curr[2].textContent)
@@ -27,6 +28,9 @@ function getFilter(json_data){
         container[i].className = "output";
     }
     if(category!= '' && curr[3].textContent != category){
+      container[i].className = "output";
+    }
+    if(start!='' && curr[4].textContent != start){
       container[i].className = "output";
     }
   }
@@ -86,12 +90,14 @@ function getQuestion(link){
     console.log(typeof data);
     var array = new Array();
     data.forEach(function(ques){
+      var airdate = ques.airdate.slice(0,10)
       output += `
         <div class="output show">
-          <span class="answer"> ${ques.answer}</span>
-          <span class ="question"> ${ques.question}</span>
-          <span class = "value">${ques.value}</span>
-          <span class = "category">${ques.category.title}</span>
+          <p class="answer"> ${ques.answer}</p>
+          <p class ="question"> ${ques.question}</p>
+          <p class = "value">${ques.value}</p>
+          <p class = "category">${ques.category.title}</p>
+          <p class = "airdate">${airdate}</p>
         </div>
       `;
     });
