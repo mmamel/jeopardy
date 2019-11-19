@@ -17,7 +17,7 @@ function getFilter(json_data){
   var category = document.getElementById("category-bar").value;
   console.log(category);
   var start = document.getElementById("start-date-bar").value;
-  var end = document.getElementById("end-date-bar").value;
+  //var end = document.getElementById("end-date-bar").value;
   var update='';
   const container = document.getElementsByClassName("output");
   for(var i =0; i<container.length;i++){
